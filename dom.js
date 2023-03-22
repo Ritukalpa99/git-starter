@@ -1,39 +1,38 @@
-// QuerySelector
-// var header = document.querySelector('#main-header');
-// header.style.borderBottom = 'solid 4px #ccc';
+// Traversing the DOM
+var itemList = document.querySelector('#items');
 
-// var input = document.querySelector('input');
-// input.value = 'Hello World';
+//parentnode
+// console.log(itemList.parentNode);
+// console.log(itemList.parentNode.parentNode);
+// console.log(itemList.parentNode.parentNode.parentNode);
 
-// var submit = document.querySelector('input[type="submit"]');
-// submit.value = "SEND";
+// // parentElement
+// console.log(itemList.parentElement);
+// console.log(itemList.parentElement.parentElement);
+// console.log(itemList.parentElement.parentElement.parentElement);
 
-// var item = document.querySelector('.list-group-item');
-// item.style.color = 'red';
+// childNodes -> take line breaks and stuff
+// console.log(itemList.childNodes);
 
-// var lastItem = document.querySelector('.list-group-item:last-child');
-// lastItem.style.color = 'blue';
+// children -> better than childNodes
+// console.log(itemList.children);
+// console.log(itemList.children[1]);
+// itemList.children[1].style.backgroundColor = 'yellow';
 
-// var secondItem = document.querySelector('.list-group-item:nth-child(2)');
-// secondItem.style.color = 'coral';
+//firstChild -> also includes line breaks
+// console.log(itemList.firstChild);
 
-// Query Selector All
-// var titles = document.querySelectorAll('.title');
-// console.log(titles);
-// titles[0].textContent = 'Hello';    
+// firstElementChild 
+// console.log(itemList.firstElementChild);
 
-// var odd = document.querySelectorAll('li:nth-child(odd)');
-// var even = document.querySelectorAll('li:nth-child(even)');
-// console.log(odd);
-// for(var i = 0 ; i < odd.length; i++) {
-//     odd[i].style.backgroundColor = '#f4f4f4';
-//     even[i].style.backgroundColor = '#ccc';
-// }
+// lastChild and lastElementChild
+// console.log(itemList.lastChild);
+// console.log(itemList.lastElementChild);
 
-var secondItem = document.querySelector('.list-group-item:nth-child(2)');
-secondItem.style.backgroundColor = 'green';
+// nextSibling && nextElementSibling
+// console.log(itemList.nextSibling);
+// console.log(itemList.nextElementSibling);
 
-var thirdItem = document.querySelector('.list-group-item:nth-child(3)');
-// console.log(thirdItem);
-thirdItem.style.display = 'none';
-
+// previousSibling && previousElementSibling
+// console.log(itemList.previousSibling);
+// console.log(itemList.previousElementSibling);

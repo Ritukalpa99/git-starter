@@ -1,26 +1,39 @@
-// Get elements by classname
-// var items = document.getElementsByClassName('list-group-item');
-// console.log(items);
-// console.log(items[1]);
-// items[1].textContent = 'Hello 2';
-// items[1].style.fontWeight = 'bold';
-// items[1].style.backgroundColor = 'yellow';
+// QuerySelector
+// var header = document.querySelector('#main-header');
+// header.style.borderBottom = 'solid 4px #ccc';
 
-// gives error
-// items.style.backgroundColor = '#f4f4f4';
-// for(var  i = 0; i < items.length; i++) {
-//     items[i].style.backgroundColor = '#f4f4f4';
+// var input = document.querySelector('input');
+// input.value = 'Hello World';
+
+// var submit = document.querySelector('input[type="submit"]');
+// submit.value = "SEND";
+
+// var item = document.querySelector('.list-group-item');
+// item.style.color = 'red';
+
+// var lastItem = document.querySelector('.list-group-item:last-child');
+// lastItem.style.color = 'blue';
+
+// var secondItem = document.querySelector('.list-group-item:nth-child(2)');
+// secondItem.style.color = 'coral';
+
+// Query Selector All
+// var titles = document.querySelectorAll('.title');
+// console.log(titles);
+// titles[0].textContent = 'Hello';    
+
+// var odd = document.querySelectorAll('li:nth-child(odd)');
+// var even = document.querySelectorAll('li:nth-child(even)');
+// console.log(odd);
+// for(var i = 0 ; i < odd.length; i++) {
+//     odd[i].style.backgroundColor = '#f4f4f4';
+//     even[i].style.backgroundColor = '#ccc';
 // }
-// items[2].style.backgroundColor = 'green';
 
-// for(var i =0 ; i < items.length; i++) {
-//     items[i].style.fontWeight = 'bold';
-// }
+var secondItem = document.querySelector('.list-group-item:nth-child(2)');
+secondItem.style.backgroundColor = 'green';
 
-// Get element by tagName
-var li = document.getElementsByTagName('li');
-console.log(li);
-console.log(li[1]);
-li[1].textContent = 'Hello 2';
-li[1].style.fontWeight = 'bold';
-li[1].style.backgroundColor = 'yellow';
+var thirdItem = document.querySelector('.list-group-item:nth-child(3)');
+// console.log(thirdItem);
+thirdItem.style.display = 'none';
+

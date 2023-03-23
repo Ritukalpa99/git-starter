@@ -1,20 +1,23 @@
-var form = document.getElementById('my-form');
+let form = document.getElementById('my-form');
 
 form.addEventListener('submit', saveDetails);
 
 function saveDetails(e) {
     e.preventDefault();
-    var name = document.getElementById('name').value;
-    var email = document.getElementById('email').value;
-    // console.log("submit clicked", name, email);
-    // localStorage.setItem('name', name);
-    // localStorage.setItem('email', email);
+    let name = document.getElementById('name').value;
+    let email = document.getElementById('email').value;
+    let phone = document.getElementById('phone').value;
     let data = {
         'name' : name,
-        'email' : email
+        'email' : email,
+        'phone' : phone,
     };
     let data_serialized = JSON.stringify(data);
-    localStorage.setItem('myObj', data_serialized);
-    console.log(localStorage.getItem('myObj'));
-    alert('Data Saved');
+    localStorage.setItem(phone, data_serialized);
+
+    let display = `${name} ${email} ${phone}`;
+    let ul = document.getElementById('users');
+    let li = document.createElement('li');
+    li.appendChild(document.createTextNode(display));
+    ul.appendChild(li);
 }

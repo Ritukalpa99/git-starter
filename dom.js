@@ -1,63 +1,54 @@
-// Traversing the DOM
-var itemList = document.querySelector('#items');
+var form = document.getElementById('addForm');
+var itemList = document.getElementById('items');
 
-//parentnode
-// console.log(itemList.parentNode);
-// console.log(itemList.parentNode.parentNode);
-// console.log(itemList.parentNode.parentNode.parentNode);
+// Form submit event
+form.addEventListener('submit', addItem);
 
-// // parentElement
-console.log(itemList.parentElement);
-// console.log(itemList.parentElement.parentElement);
-// console.log(itemList.parentElement.parentElement.parentElement);
+// Delete event
+itemList.addEventListener('click', removeItem);
 
-// childNodes -> take line breaks and stuff
-// console.log(itemList.childNodes);
+// add Item
+function addItem(e) {
+    e.preventDefault();
+    
+    // get input value
+    var newItem = document.getElementById('item').value;
 
-// children -> better than childNodes
-// console.log(itemList.children);
-// console.log(itemList.children[1]);
-// itemList.children[1].style.backgroundColor = 'yellow';
+    // create new li element
+    var li = document.createElement('li');
+    li.className = 'list-group-item';
+    // Add text node with input value
+    li.appendChild(document.createTextNode(newItem))
 
-//firstChild -> also includes line breaks
-// console.log(itemList.firstChild);
+    // create edit button element
+    var editBtn = document.createElement('button');
+    editBtn.className = 'btn btn-info btn-sm float-right edit ml-2';
+    // Append text node
+    editBtn.appendChild(document.createTextNode('Edit'));
 
-// firstElementChild 
-// console.log(itemList.firstElementChild);
+    // Append edit button to li
+    li.appendChild(editBtn);
 
-// lastChild and lastElementChild
-// console.log(itemList.lastChild);
-// console.log(itemList.lastElementChild);
+    // create del button element
+    var deleteBtn = document.createElement('button');
+    deleteBtn.className = 'btn btn-danger btn-sm float-right delete';
+    // Append text node
+    deleteBtn.appendChild(document.createTextNode('X'));
 
-// nextSibling && nextElementSibling
-// console.log(itemList.nextSibling);
-// console.log(itemList.nextElementSibling);
+    // Append del button to li
+    li.appendChild(deleteBtn);
 
-// previousSibling && previousElementSibling
-// console.log(itemList.previousSibling);
-// console.log(itemList.previousElementSibling);
+    // Append li to list
+    itemList.appendChild(li);
 
-//
+    form.reset();
+}
 
-// createElement
-
-// Create a div
-var newDiv = document.createElement('div');
-
-newDiv.className = 'hello';
-newDiv.id = 'hello1';   
-
-newDiv.setAttribute('title', 'hello Div');
-
-// create a textnode
-var newDivText = document.createTextNode('Hello world');
-
-// Add text to div
-newDiv.appendChild(newDivText);
-
-var container = document.querySelector('header .container')
-var h1 = document.querySelector('header h1');
-
-console.log(newDiv);
-
-container.insertBefore(newDiv,h1);
+function removeItem(e){
+    if(e.target.classList.contains('delete')){
+      if(confirm('Are You Sure?')){
+        var li = e.target.parentElement;
+        itemList.removeChild(li);
+      }
+    }
+  }

@@ -21,6 +21,7 @@ function saveDetails(e) {
     li.appendChild(document.createTextNode(display));
     // Delete button
     let deleteBtn = document.createElement('button');
+    let editBtn = document.createElement('button');
     
     deleteBtn.className = 'delete';
     deleteBtn.appendChild(document.createTextNode('delete'));
@@ -29,8 +30,22 @@ function saveDetails(e) {
         ul.removeChild(li);
     };
 
+    editBtn.append(document.createTextNode("Edit"));
+    editBtn.onclick = () => {
+        let getData = JSON.parse(localStorage.getItem(email));
+        let n = document.getElementById('name');
+        let e = document.getElementById('email');
+        let p = document.getElementById('phone');
+        console.log(getData);
+        localStorage.removeItem(email);
+        ul.removeChild(li);
+        n.value = getData.name;
+        e.value = getData.email;
+        p.value = getData.phone;   
+    }
     
     li.appendChild(deleteBtn);
+    li.appendChild(editBtn);
     ul.appendChild(li);
 
     form.reset();
